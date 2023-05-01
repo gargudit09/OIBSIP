@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                         initial-scale=1.0">
+    <title>Temp Convertor</title>
+ 
+</head>
+<style>
+   body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(51deg, #0042ff, #9400ff, #ff8500, #33ff00);
+    background-size: 800% 800%;
+
+    -webkit-animation: Vishu 13s ease infinite;
+    -moz-animation: Vishu 13s ease infinite;
+    animation: Vishu 13s ease infinite;
+}
+
+@-webkit-keyframes Vishu {
+    0%{background-position:82% 0%}
+    50%{background-position:19% 100%}
+    100%{background-position:82% 0%}
+}
+@-moz-keyframes Vishu {
+    0%{background-position:82% 0%}
+    50%{background-position:19% 100%}
+    100%{background-position:82% 0%}
+}
+@keyframes Vishu {
+    0%{background-position:82% 0%}
+    50%{background-position:19% 100%}
+    100%{background-position:82% 0%}
+}
+.container{
+    border-radius: 30px;
+    padding: 1rem;
+    padding-bottom: 250px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.17);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(4.2px);
+  -webkit-backdrop-filter: blur(4.2px);
+   border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+.col{
+    padding:50px;
+}
+.convertor-row{
+padding-bottom: 50px;
+}
+
+
+label{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+</style>
+ 
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <div class="converter-row">
+            <div class="col">
+                <label>Fahrenheit</label>
+                <input type="number" id="fahrenheit">
+            </div>
+ 
+            <div class="col">
+                <label>Celsius&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="number" id="celsius">
+            </div>
+ 
+            <div class="col">
+                <label>Kelvin&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="number" id="kelvin">
+            </div>
+        </div>
+    </div>
+ 
+<script>
+        let celsius = document.getElementById('celsius');
+        let fahrenheit = document.getElementById('fahrenheit');
+        let kelvin = document.getElementById('kelvin');
+        celsius.oninput = function () {
+            let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+ 
+            let k = (parseFloat(celsius.value) + 273.15);
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        fahrenheit.oninput = function () {
+            let c = ((parseFloat(
+                fahrenheit.value) - 32) * 5) / 9;
+            celsius.value = parseFloat(c.toFixed(2));
+ 
+            let k = (parseFloat(
+                fahrenheit.value) - 32) * 5 / 9 + 273.15;
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        kelvin.oninput = function () {
+            let f = (parseFloat(
+                kelvin.value) - 273.15) * 9 / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+ 
+            let c = (parseFloat(kelvin.value) - 273.15);
+            celsius.value = parseFloat(c.toFixed(2));
+        }
+    </script>
+</body>
+</html>
